@@ -86,7 +86,7 @@ mapper_connection:            # 数据库配置
     password: '123456'
     database: 'auto-movie-resources-manager'  # 数据库名
 
-rabbitmq_url: "amqp://admin:admin@10.31.2.56:5672/"     # rabbitmq_url数据库配置
+rabbitmq_url: "amqp://admin:admin@xx.xxx.xx:5672/"     # rabbitmq_url数据库配置
 
 notice:       # 通知配置，目前只支持ntfy
   type: "ntfy"
@@ -105,8 +105,8 @@ save_file_suffix:     # 附属文件后缀，这些文件会下载到本地
   - ssa
 
 Emby:
-  url: "http://10.31.2.56:8096"         # Emby地址
-  api_key: "93793ebdc01143268f9f5dbbff1ac155"      # Emby 秘钥
+  url: "http://xx.xxx.xx:8096"         # Emby地址
+  api_key: "12312312"      # Emby 秘钥
   video_folder: "/video"         # Emby 路径前缀，如果emby内部路径为/video, 本服务路径为/video/123,则填/video
 
 baidu_translate:

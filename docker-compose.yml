@@ -2,7 +2,7 @@ version: '3.8'  # 指定compose版本，支持更多特性
 
 services:
     auto-movie-resources-manager:
-        image: wuxin12/auto-movie-resources-manager:v1
+        image: wuxin12/auto-movie-resources-manager:v0.1
         container_name: auto-movie-resources-manager
         labels:
             createdBy: Apps
