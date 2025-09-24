@@ -13,6 +13,7 @@ services:
         environment:
           - EMBY_HOST=http://xxx.xxx..xx:8096       # Emby地址，容器能访问的即可，无需公网,302代理使用
           - USERNAME = admin
+          - PWD = 123456
         volumes:
             - /etc/hosts:/etc/hosts
             - /volume2/video:/app/video

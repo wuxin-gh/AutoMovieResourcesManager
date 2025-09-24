@@ -125,6 +125,14 @@ baidu_translate:
 
 [刮削配置说明](./其他/刮削配置说明.md)
 
+
+## 版本说明
+[版本说明](./版本说明.md)
+
+
+## 版本说明
+[许愿池](./许愿池/许愿池.md)
+
 ---
 <div align="center">
     <p>Made with ❤️ by AutoMovieResourcesManager Team</p>
