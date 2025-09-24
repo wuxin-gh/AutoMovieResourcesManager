@@ -7,9 +7,12 @@ services:
         labels:
             createdBy: Apps
         ports:
-            - "8092:8092"
-            - "8090:8090"
+            - "8092:8092"     # Emby端口，手机、web访问Emby使用
+            - "8090:8090"     # 服务端口，配置到strm_url上面，需要注意如果需要外网访问，请配置公网到strm_url配置上面
         restart: unless-stopped  # 更合理的重启策略
+        environment:
+          - EMBY_HOST=http://xxx.xxx..xx:8096       # Emby地址，容器能访问的即可，无需公网,302代理使用
+          - USERNAME = admin
         volumes:
             - /etc/hosts:/etc/hosts
             - /volume2/video:/app/video
@@ -91,5 +94,6 @@ services:
         retries: 3
 
 networks:
-    moontv-network:
+    auto-movie-resources-manager:
         name: auto-movie-resources-manager
+        driver: bridge

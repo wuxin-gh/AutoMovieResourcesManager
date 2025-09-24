@@ -64,7 +64,7 @@ AutoMovieResourcesManager 是一个强大的全自动媒体资源管理工具，
 compose见docker-compose.yml文件
 注意: 配置前请先配置好如下配置，并放置到config目录下
 
-### 全局配置说明
+### 全局配置说明(config.yaml，放在config目录下，需要单独映射)
 ```yaml
 redis:      # redis配置
   prefix_key: "api"   # redis前缀
@@ -115,6 +115,16 @@ baidu_translate:
 
 
 ```
+
+## 其他配置说明
+[Emby 配置说明](./其他/Emby配置说明.md)
+
+[AI平台支持](./其他/AI平台支持.md)
+
+[网盘配置说明](./其他/网盘配置说明.md)
+
+[刮削配置说明](./其他/刮削配置说明.md)
+
 ---
 <div align="center">
     <p>Made with ❤️ by AutoMovieResourcesManager Team</p>
