@@ -1,9 +1,5 @@
 # AutoMovieResourcesManager
 
-<div align="center">
-    <p>全自动媒体资源管理工具</p>
-</div>
-
 ## 📖 简介
 
 AutoMovieResourcesManager 是一个强大的全自动媒体资源管理工具，使用网盘strm同步，AI智能刮削及整理，302反代等完成对网盘资源的管理
