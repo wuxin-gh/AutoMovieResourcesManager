@@ -134,6 +134,10 @@ baidu_translate:
 ## 版本说明
 [许愿池](./许愿池/许愿池.md)
 
+
+## 免责申明
+AutoMovieResourcesManager 仅用于学习，请勿用于非法用途。禁止任何商业用途。
+
 ---
 <div align="center">
     <p>Made with ❤️ by AutoMovieResourcesManager Team</p>
