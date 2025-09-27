@@ -12,87 +12,17 @@ services:
         restart: unless-stopped  # 更合理的重启策略
         environment:
           - EMBY_HOST=http://xxx.xxx..xx:8096       # Emby地址，容器能访问的即可，无需公网,302代理使用
-          - USERNAME = admin
-          - PWD = 123456
+          - USERNAME = admin                        # 平台登录用户名，可选，默认admin
+          - PASSWORD = 123456                       # 平台登录密码，可选，默认123456
         volumes:
-            - /etc/hosts:/etc/hosts
-            - /volume2/video:/app/video
-            - ./config/config.yaml:/app/config/config.yaml
-            - ./log:/app/log
-            - ./nginx/log:/var/log/nginx
+            - ./postgres-data:/data/postgres                # 数据库持久化
+            - ./config/config.yaml:/app/config/config.yaml   # 配置文件
+            - /etc/hosts:/etc/hosts                         # 映射host，可选
+            - /volume2/video:/app/video                     # 媒体库STRM映射目录
+            - ./log:/app/log                                # 日志
         working_dir: /app
-        depends_on:
-            postgres:
-                condition: service_healthy  # 等待postgres健康检查通过
-            redis:
-                condition: service_started  # 等待redis启动
-            rabbitmq:
-              condition: service_started  # 等待rabbitmq启动
         networks:
             - auto-movie-resources-manager
-
-    postgres:
-        image: postgres:16-alpine
-        container_name: amrm-postgres
-        environment:
-            POSTGRES_DB: auto-movie-resources-manager
-            POSTGRES_USER: admin
-            POSTGRES_PASSWORD: 123456
-            # PostgreSQL不需要UID/GID环境变量，这些是应用特定的
-        ports:
-            - "5432:5432"
-        restart: unless-stopped
-        volumes:
-            - ./postgresql:/var/lib/postgresql/data
-            # 可选：添加初始化脚本目录
-            # - ./postgres-init:/docker-entrypoint-initdb.d
-        healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U admin -d auto-movie-resources-manager"]
-            interval: 10s
-            timeout: 5s
-            retries: 5
-        networks:
-            - auto-movie-resources-manager
-
-    redis:
-        image: redis:7.2-alpine
-        container_name: amrm-redis
-        restart: unless-stopped
-        ports:
-            - "6479:6379"
-        volumes:
-            - ./redis/data:/data
-            # 可选：添加自定义配置
-            # - ./redis/redis.conf:/etc/redis/redis.conf
-        # Redis不需要UID/GID环境变量
-        command: redis-server --appendonly yes  # 启用持久化
-        networks:
-            - auto-movie-resources-manager-network
-
-    rabbitmq:
-      image: rabbitmq:3-management-alpine  # 轻量级带管理界面的镜像
-      container_name: rabbitmq-service
-      restart: always  # 自动重启
-      environment:
-        RABBITMQ_DEFAULT_USER: admin       # 自定义用户名
-        RABBITMQ_DEFAULT_PASS: admin       # 自定义密码
-        RABBITMQ_DEFAULT_VHOST: /          # 默认虚拟主机
-      ports:
-        - "5672:5672"   # AMQP 通信端口（应用程序连接）
-        - "15672:15672" # 管理界面端口（浏览器访问）
-      volumes:
-        - ./rabbitmq-data:/var/lib/rabbitmq  # 持久化数据卷（防止数据丢失）
-        - ./rabbitmq-config:/etc/rabbitmq  # 自定义配置目录（可选）
-      networks:
-        - auto-movie-resources-manager
-      command: >
-        sh -c "rabbitmq-plugins enable rabbitmq_management &&
-               rabbitmq-server"
-      healthcheck:
-        test: ["CMD", "rabbitmqctl", "status"]  # 健康检查
-        interval: 30s
-        timeout: 10s
-        retries: 3
 
 networks:
     auto-movie-resources-manager:
