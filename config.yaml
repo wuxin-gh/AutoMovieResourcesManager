@@ -4,9 +4,9 @@ ProxyUrl: "https://xx.xx.xx"
 
 notice:
   type: "ntfy"
-  url: "http://10.31.2.56:1265/auto_video_1"
+  url: "http://10.xx.xx.xx:1265/auto_video_1"
 
-strm_url: "https://10.31.2.56:8090"
+strm_url: "https://10.xx.xxx.xx:8090"
 
 save_file_suffix:
   - nfo
@@ -22,5 +22,5 @@ Emby:
   video_folder: "/video"
 
 baidu_translate:
-  appid: "20250729002418455"
-  secret_key: "CiXae5vpxr37b__MQmfa"
+  appid: "xxx"
+  secret_key: "xxxx"
