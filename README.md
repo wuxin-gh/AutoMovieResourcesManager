@@ -70,27 +70,8 @@ compose见docker-compose.yml文件
 
 ### 全局配置说明(config.yaml，放在config目录下，需要单独映射)
 ```yaml
-redis:      # redis配置
-  prefix_key: "api"   # redis前缀
-  is_cluster: false
-  host: "xx.xx.xx.xx"   # redis的ip地址
-  port: 6379      # redis的端口
-  db: 9       # redis的db库
-  decode_responses: true
-  max_connections: 500
 
 ProxyUrl: "https://xxx.xxxx.xx"     # CloudFlare 的反向代理地址，访问外网时使用
-
-mapper_connection:            # 数据库配置
-  engine: tortoise.backends.asyncpg
-  credentials:
-    host: "xxx.xxxx"    # 数据库ip
-    port: 5432        # 数据库端口     
-    user: 'test'      
-    password: '123456'
-    database: 'auto-movie-resources-manager'  # 数据库名
-
-rabbitmq_url: "amqp://admin:admin@xx.xxx.xx:5672/"     # rabbitmq_url数据库配置
 
 notice:       # 通知配置，目前只支持ntfy
   type: "ntfy"
