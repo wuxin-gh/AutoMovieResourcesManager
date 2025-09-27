@@ -1,0 +1,26 @@
+# 数据库连接配置（匹配 Dockerfile 内置 PostgreSQL 默认值）
+
+ProxyUrl: "https://xx.xx.xx"
+
+notice:
+  type: "ntfy"
+  url: "http://10.31.2.56:1265/auto_video_1"
+
+strm_url: "https://10.31.2.56:8090"
+
+save_file_suffix:
+  - nfo
+  - srt
+  - ass
+  - str
+  - sub
+  - ssa
+
+Emby:
+  url: "http://xxxx:8097"
+  api_key: "xxxx"
+  video_folder: "/video"
+
+baidu_translate:
+  appid: "20250729002418455"
+  secret_key: "CiXae5vpxr37b__MQmfa"
