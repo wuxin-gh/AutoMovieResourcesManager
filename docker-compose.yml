@@ -20,7 +20,6 @@ services:
             - /etc/hosts:/etc/hosts                         # 映射host，可选
             - /volume2/video:/app/video                     # 媒体库STRM映射目录
             - ./log:/app/log                                # 日志
-        working_dir: /app
         networks:
             - auto-movie-resources-manager
 
