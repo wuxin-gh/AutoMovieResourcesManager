@@ -12,7 +12,6 @@
 6. copy代码
 
 [代码](../反代程序/proxy.js)
-[代码](/反代程序/proxy.js)
 
 7. 点击部署
 <img src="../img/img_2.png" width="800"/>
