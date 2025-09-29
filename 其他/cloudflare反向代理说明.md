@@ -12,10 +12,11 @@
 6. copy代码
 - [代码](../反代程序/proxy.js)
 7. 点击部署
-![img_2.png](../img/img_2.png)
+<img src="../img/img_2.png" width="800"/>
+
 8. 进入设置，添加一个自定义域
-![img_3.png](../img/img_3.png)
+<img src="../img/img_3.png" width="800"/>
 9. 填入的域名放到配置ProxyUrl
-![img_4.png](../img/img_4.png)
-![img_5.png](../img/img_5.png)
+<img src="../img/img_4.png" width="800"/>
+<img src="../img/img_5.png" width="800"/>
 注意： 这个域名为参数: ProxyUrl 的值，记得加入https://域名
